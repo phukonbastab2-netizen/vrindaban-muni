@@ -73,8 +73,12 @@ input[type="date"] {
   <span>Date of Birth</span>
   <input type="date" required>
 </div>
-    <button>Enter the Path</button>
+    <button onclick="goToDashboard()">Enter the Path</button>
   </div>
-
+<script>
+  function goToDashboard() {
+    window.location.href = "dashboard.html";
+  }
+</script>
 </body>
 </html>
