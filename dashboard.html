@@ -76,7 +76,18 @@
     }
   </style>
 </head>
+<script>
+  const userId = localStorage.getItem("vrindavan_user_id");
+  const userName = localStorage.getItem("vrindavan_user_name");
 
+  if (!userId || !userName) {
+    // No account found → send back to entry page
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("welcomeText").innerText =
+      "Welcome, " + userName;
+  }
+</script>
 <body>
 
   <img src="f.png" alt="Vrindavan Muni" class="avatar">
