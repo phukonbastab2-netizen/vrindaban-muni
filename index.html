@@ -73,10 +73,27 @@ input[type="date"] {
   <span>Date of Birth</span>
   <input type="date" required>
 </div>
-    <button onclick="goToDashboard()">Enter the Path</button>
+    <button onclick="createAccount()">Enter the Path</button>
   </div>
 <script>
-  function goToDashboard() {
+  function createAccount() {
+    const name = document.querySelector('input[type="text"]').value.trim();
+    const dob = document.querySelector('input[type="date"]').value;
+
+    if (!name || !dob) {
+      alert("Please enter your name and date of birth");
+      return;
+    }
+
+    // Create unique user ID
+    const userId = btoa(name + "|" + dob);
+
+    // Save account in localStorage
+    localStorage.setItem("vrindavan_user_id", userId);
+    localStorage.setItem("vrindavan_user_name", name);
+    localStorage.setItem("vrindavan_user_dob", dob);
+
+    // Go to dashboard
     window.location.href = "dashboard.html";
   }
 </script>
